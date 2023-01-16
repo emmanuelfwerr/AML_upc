@@ -21,13 +21,14 @@ class UnivariateFeatureSelction:
         # methods if you wish
         if problem_type == "classification":
             valid_scoring = {
-            "f_classif": f_classif,
-            "chi2": chi2,
-            "mutual_info_classif": mutual_info_classif
+                "f_classif": f_classif,
+                "chi2": chi2,
+                "mutual_info_classif": mutual_info_classif
             } 
         else:
             valid_scoring = {
-            "f_regression": f_regression, "mutual_info_regression": mutual_info_regression
+                "f_regression": f_regression, 
+                "mutual_info_regression": mutual_info_regression
             }
             
         # raise exception if we do not have a valid scoring method
@@ -64,6 +65,11 @@ class UnivariateFeatureSelction:
     def fit_transform(self, X, y):
         '''  '''
         return self.selection.fit_transform(X, y)
+
+    # same get_feature_names_out function
+    def get_feature_names_out(self):
+        '''  '''
+        return self.selection.get_feature_names_out(X, y)
 
     
 # ---*--- How to use this Class ---*--- 
